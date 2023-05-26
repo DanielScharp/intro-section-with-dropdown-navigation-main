@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js" integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <title>Frontend Mentor | Intro section with dropdown navigation</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap');
+
+    * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+      font-family: 'Rubik', sans-serif;
+    }
+
+    .navbar {
+      width: 100vw;
+      height: 100vh;
+      color: rgb(117, 117, 117);
+    }
+
+    .navbar img.p-20 {
+      padding: 20px;
+    }
+
+    .navbar-content-hide {
+      height: 100vh;
+      position: absolute;
+      top: 0;
+      right: 0px;
+      background: rgb(255, 255, 255);
+      width: 200px;
+    }
+    .navbar-content-hide::before {
+      content: " ";
+      width: 100vw;
+      height: 100%;
+      position: absolute;
+      left: -100vw;
+      background: #00000075;
+    }
+    .navbar-content-show {
+      display: none;
+    }
+
+    .navbar-menu {
+      display: none;
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+
+    .nav-items {
+      list-style: none;
+      padding-left: 20px;
+    }
+
+    .nav-items li {
+      padding: 10px 0;
+    }
+
+    .dropMenu {
+      margin-left: 10px;
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <img src="./images/logo.svg" alt="" class="p-20">
+    
+    <img class="navbar-menu p-20" src="./images/icon-menu.svg" alt="">
+    <div class="navbar-content navbar-content-hide">
+      <img class="navbar-close p-20" src="./images/icon-close-menu.svg" alt="">
+      <ul class="nav-items">
+        <li>Features <img src="./images/icon-arrow-down.svg" alt="" class="dropMenu"></li>
+        <li>Company</li>
+        <li>Careers</li>
+        <li>About</li>
+      </ul>
+      <div>
+        <a href="#">Login</a>
+        <a href="#">Register</a>
+      </div>
+    </div>
+  </nav>
+  <p>
+    Get your team in sync, no matter your location. Streamline processes,create team rituals, and watch productivity soar. Learn more
+  </p>
+  
+</body>
+
+<script>
+  $(".navbar-close").click(function(){
+    $(".navbar-content").removeClass("navbar-content-hide");
+    $(".navbar-content").addClass("navbar-content-show");
+    $(".navbar-close").toggle("fast")
+    $(".navbar-menu").toggle("fast")
+  })
+
+  $(".navbar-menu").click(function(){
+    $(".navbar-content").addClass("navbar-content-hide");
+    $(".navbar-content").removeClass("navbar-content-show");
+    $(".navbar-close").toggle("fast")
+    $(".navbar-menu").toggle("fast")
+  })
+</script>
+</html>
